@@ -1,10 +1,11 @@
 ﻿using System.Text.RegularExpressions;
 using Lacuna.Domain.Validation;
 
-namespace Lacuna.Domain;
+namespace Lacuna.Domain.Users;
 
 public class User
 {
+    public Guid Id { get; private set; }
     public string Username { get; private set; }
     public string Email { get; private set; }
     public string Password { get; private set; }
@@ -22,6 +23,7 @@ public class User
         DomainExceptionValidation.When(!EmailIsValid(email), "Invalid email.");
         DomainExceptionValidation.When(password.Length < 8, "Password must has 8 chars at minimum.");
 
+        Id = Guid.NewGuid();
         Username = username;
         Email = email;
         Password = password;
