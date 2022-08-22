@@ -21,7 +21,7 @@ public class UserMapping : IEntityTypeConfiguration<User>
             .HasColumnName("E-Mail")
             .HasColumnType("VARCHAR(100)");
 
-        builder.Property(x => x.Password)
+        builder.Property(x => x.HashedPassword)
             .HasColumnName("HashPassword")
             .HasColumnType("VARCHAR(64)");
     }

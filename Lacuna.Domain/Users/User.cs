@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Security.Cryptography;
+using System.Text.RegularExpressions;
 using Lacuna.Domain.Validation;
 
 namespace Lacuna.Domain.Users;
@@ -8,7 +9,7 @@ public class User
     public Guid Id { get; private set; }
     public string Username { get; private set; }
     public string Email { get; private set; }
-    public string Password { get; private set; }
+    public string HashedPassword { get; private set; }
 
     public User(string username, string email, string password)
     {
@@ -26,7 +27,7 @@ public class User
         Id = Guid.NewGuid();
         Username = username;
         Email = email;
-        Password = password;
+        HashedPassword = HashPassword(password);
     }
 
     private static bool UsernameIsValid(string str)
@@ -37,5 +38,17 @@ public class User
     private static bool EmailIsValid(string str)
     {
         return Regex.IsMatch(str, @"[a-z A-z 0-9_\-]+[@]+[a-z]+[\.][a-z]{3,4}$");
+    }
+
+    private static string HashPassword(string password)
+    {
+        var sha256 = HashAlgorithmName.SHA256;
+        byte[] salt = RandomNumberGenerator.GetBytes(128 / 8);
+        byte[] hash = new Rfc2898DeriveBytes(password, salt, 100000, sha256).GetBytes(20);
+
+        byte[] hashedBytes = new byte[36];
+        Array.Copy(salt, 0, hashedBytes,0,16);
+        Array.Copy(hash,0,hashedBytes,16,20);
+        return Convert.ToBase64String(hashedBytes);
     }
 }
