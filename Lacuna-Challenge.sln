@@ -2,6 +2,14 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lacuna.WebApi", "Lacuna.WebApi\Lacuna.WebApi.csproj", "{D22A0993-0AE9-404D-B08F-EBF1A1BA14D7}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A8D9A6A2-BB94-4837-88A1-C9517A7FCDA7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{0085728C-4600-4611-B529-F321D71C7688}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lacuna.Domain", "Lacuna.Domain\Lacuna.Domain.csproj", "{32D003F9-4129-4293-9463-804BB1D004FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lacuna.Infrastructure", "Lacuna.Infrastructure\Lacuna.Infrastructure.csproj", "{7321109C-1CCC-4CE1-84B1-65562765ABB7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +20,18 @@ Global
 		{D22A0993-0AE9-404D-B08F-EBF1A1BA14D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D22A0993-0AE9-404D-B08F-EBF1A1BA14D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D22A0993-0AE9-404D-B08F-EBF1A1BA14D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32D003F9-4129-4293-9463-804BB1D004FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32D003F9-4129-4293-9463-804BB1D004FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32D003F9-4129-4293-9463-804BB1D004FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32D003F9-4129-4293-9463-804BB1D004FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7321109C-1CCC-4CE1-84B1-65562765ABB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7321109C-1CCC-4CE1-84B1-65562765ABB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7321109C-1CCC-4CE1-84B1-65562765ABB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7321109C-1CCC-4CE1-84B1-65562765ABB7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D22A0993-0AE9-404D-B08F-EBF1A1BA14D7} = {A8D9A6A2-BB94-4837-88A1-C9517A7FCDA7}
+		{32D003F9-4129-4293-9463-804BB1D004FE} = {A8D9A6A2-BB94-4837-88A1-C9517A7FCDA7}
+		{7321109C-1CCC-4CE1-84B1-65562765ABB7} = {A8D9A6A2-BB94-4837-88A1-C9517A7FCDA7}
 	EndGlobalSection
 EndGlobal
