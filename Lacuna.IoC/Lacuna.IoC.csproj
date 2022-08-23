@@ -8,7 +8,6 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Lacuna.Infrastructure\Lacuna.Infrastructure.csproj" />
-      <ProjectReference Include="..\Lacuna.WebApi\Lacuna.WebApi.csproj" />
     </ItemGroup>
 
 </Project>

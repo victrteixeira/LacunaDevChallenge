@@ -6,11 +6,14 @@ namespace Lacuna.Domain.Users;
 
 public class User
 {
-    public Guid Id { get; private set; }
+    public Guid Id { get; set; }
     public string Username { get; private set; }
     public string Email { get; private set; }
     public string HashedPassword { get; private set; }
 
+    protected User()
+    {
+    }
     public User(string username, string email, string password)
     {
         ValidateDomain(username, email, password);
@@ -40,7 +43,7 @@ public class User
         return Regex.IsMatch(str, @"[a-z A-z 0-9_\-]+[@]+[a-z]+[\.][a-z]{3,4}$");
     }
 
-    private static string HashPassword(string password)
+    public static string HashPassword(string password)
     {
         var sha256 = HashAlgorithmName.SHA256;
         byte[] salt = RandomNumberGenerator.GetBytes(128 / 8);

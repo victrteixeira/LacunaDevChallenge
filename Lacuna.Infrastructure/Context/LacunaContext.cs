@@ -9,7 +9,7 @@ public class LacunaContext : DbContext
     {
     }
     
-    public DbSet<User?> LacunaUsers { get; set; }
+    public DbSet<User> LacunaUsers { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
