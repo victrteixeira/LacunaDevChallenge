@@ -4,7 +4,8 @@ namespace Lacuna.Domain.Interfaces;
 
 public interface IUserRepository
 {
-    Task<bool> CreateUserAsync(User user);
+    Task<User?> CreateUserAsync(User user);
     Task DeleteUserAsync(User user);
-    Task<User> GetUserAsync(string email);
+    Task<User?> GetEmailAsync(string email);
+    Task<User?> GetUsernameAsync(string username);
 }

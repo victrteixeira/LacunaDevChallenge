@@ -12,11 +12,11 @@ public class UserRepository : IUserRepository
     {
         _context = context;
     }
-    public async Task<bool> CreateUserAsync(User user)
+    public async Task<User?> CreateUserAsync(User user)
     {
         _context.LacunaUsers.Add(user);
         await _context.SaveChangesAsync();
-        return true;
+        return user;
     }
 
     public async Task DeleteUserAsync(User user)
@@ -25,11 +25,20 @@ public class UserRepository : IUserRepository
         await _context.SaveChangesAsync();
     }
 
-    public async Task<User> GetUserAsync(string email)
+    public async Task<User?> GetEmailAsync(string email)
     {
         return await _context.LacunaUsers
             .AsNoTracking()
             .Where(x => x.Email.ToLower().Contains(email.ToLower()))
+            .FirstOrDefaultAsync();
+    }
+
+    public async Task<User?> GetUsernameAsync(string username)
+    {
+        return await _context.LacunaUsers
+            .AsNoTracking()
+            .Where(x => x.Username.ToLower()
+                .Contains(username.ToLower()))
             .FirstOrDefaultAsync();
     }
 }

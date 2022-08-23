@@ -5,17 +5,24 @@
     <projectFile profileName="Lacuna.WebApi">Lacuna.WebApi/Lacuna.WebApi.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6000a94b-e817-4e23-aff4-af77ef48f4b0" name="Changes" comment="Password changes.">
+    <list default="true" id="6000a94b-e817-4e23-aff4-af77ef48f4b0" name="Changes" comment="First EF migration">
+      <change afterPath="$PROJECT_DIR$/Lacuna.Application/DTO/CreateUserDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lacuna.Application/DTO/LoginUserDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lacuna.Application/Interfaces/IAuthentication.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lacuna.Application/Interfaces/ITokenRequest.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lacuna.Application/Lacuna.Application.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lacuna.Application/Requests/TokenRequest.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lacuna.Application/Responses/CreateUserResponse.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lacuna.Application/Responses/TokenResponse.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lacuna.Application/Services/AuthenticationService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lacuna.Application/Utils/PasswordValidation.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Lacuna-Challenge/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Lacuna-Challenge/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lacuna.Domain/Users/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Lacuna.Domain/Users/User.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lacuna.Infrastructure/Context/LacunaContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Lacuna.Infrastructure/Context/LacunaContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lacuna.Infrastructure/Lacuna.Infrastructure.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Lacuna.Infrastructure/Lacuna.Infrastructure.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lacuna-Challenge.sln" beforeDir="false" afterPath="$PROJECT_DIR$/Lacuna-Challenge.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lacuna.Domain/Interfaces/IUserRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Lacuna.Domain/Interfaces/IUserRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lacuna.Infrastructure/Repository/UserRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Lacuna.Infrastructure/Repository/UserRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Lacuna.IoC/Container.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Lacuna.IoC/Container.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Lacuna.IoC/Lacuna.IoC.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Lacuna.IoC/Lacuna.IoC.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lacuna.WebApi/Controllers/WeatherForecastController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lacuna.WebApi/Lacuna.WebApi.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Lacuna.WebApi/Lacuna.WebApi.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Lacuna.WebApi/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Lacuna.WebApi/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lacuna.WebApi/WeatherForecast.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Lacuna.WebApi/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Lacuna.WebApi/appsettings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -26,6 +33,11 @@
   <component name="Git.Settings">
     <option name="RESET_MODE" value="HARD" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -34,16 +46,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.Lacuna.WebApi">
     <configuration name="Lacuna.WebApi" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Lacuna.WebApi/Lacuna.WebApi.csproj" />
@@ -91,9 +103,17 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1661282586294</updated>
-      <workItem from="1661282592262" duration="706000" />
+      <workItem from="1661282592262" duration="6650000" />
+      <workItem from="1661289425645" duration="3695000" />
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="First EF migration">
+      <created>1661283447162</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1661283447162</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -114,6 +134,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Password changes." />
-    <option name="LAST_COMMIT_MESSAGE" value="Password changes." />
+    <MESSAGE value="First EF migration" />
+    <option name="LAST_COMMIT_MESSAGE" value="First EF migration" />
   </component>
 </project>
