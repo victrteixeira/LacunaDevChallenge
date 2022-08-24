@@ -1,4 +1,5 @@
-﻿using Lacuna.Application.DTO;
+﻿using System.Security.Authentication;
+using Lacuna.Application.DTO;
 using Lacuna.Application.Interfaces;
 using Lacuna.Application.Responses;
 using Lacuna.Application.Utils;
@@ -22,24 +23,12 @@ public class Authentication : IAuthentication
     {
         var emailExist = await _repository.GetEmailAsync(userDto.Email);
         if (emailExist != null)
-        {
-            return new CreateUserResponse
-            {
-                Code = "Error",
-                Message = "Email already exist."
-            };
-        }
+            throw new AuthenticationException("Email already registered.");
 
         User user = new(userDto.Username, userDto.Email, userDto.Password);
         var userCreated = await _repository.CreateUserAsync(user);
         if (userCreated == null)
-        {
-            return new CreateUserResponse
-            {
-                Code = "False",
-                Message = "Something went wrong."
-            };    
-        }
+            throw new NullReferenceException("Something got wrong.");
 
         return new CreateUserResponse { Code = "Success", Message = "User created successfully." };
     }
@@ -48,18 +37,11 @@ public class Authentication : IAuthentication
     {
         var user = await _repository.GetUsernameAsync(userDto.Username);
         if (user == null)
-        {
-            return new TokenResponse
-            {
-                AccessToken = null,
-                Code = "Error",
-                Message = "User doesn't exist."
-            };
-        }
+            throw new NullReferenceException();
 
         var pwdValid = PasswordValidation.IsValid(userDto, user.HashedPassword);
         if (!pwdValid)
-            return new TokenResponse { AccessToken = null, Code = "Error", Message = "Login or password incorrect." };
+            throw new AuthenticationException();
 
         return await _token.GenerateToken(user);
     }
