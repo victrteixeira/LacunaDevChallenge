@@ -5,12 +5,13 @@
     <projectFile profileName="Lacuna.WebApi">Lacuna.WebApi/Lacuna.WebApi.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6000a94b-e817-4e23-aff4-af77ef48f4b0" name="Changes" comment="Application layer added: Token, Dtos, Services.">
-      <change afterPath="$PROJECT_DIR$/Lacuna.WebApi/Controllers/UsersController.cs" afterDir="false" />
+    <list default="true" id="6000a94b-e817-4e23-aff4-af77ef48f4b0" name="Changes" comment="Create user endpoint added in API">
+      <change afterPath="$PROJECT_DIR$/Lacuna.DomainTests/Lacuna.DomainTests.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lacuna.DomainTests/UserTests.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lacuna.DomainTests/Usings.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Lacuna-Challenge/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Lacuna-Challenge/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Lacuna-Challenge.sln" beforeDir="false" afterPath="$PROJECT_DIR$/Lacuna-Challenge.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lacuna.Application/Services/AuthenticationService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Lacuna.Application/Services/AuthenticationService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lacuna.WebApi/Lacuna.WebApi.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Lacuna.WebApi/Lacuna.WebApi.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lacuna.Domain/Users/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Lacuna.Domain/Users/User.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +23,8 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://N:/Challenge/LacunaDevChallenge/Lacuna-Challenge/Lacuna.Application/Services/AuthenticationService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Lacuna.DomainTests/UserTests.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -31,21 +34,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.Lacuna.WebApi">
     <configuration name="Lacuna.WebApi" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Lacuna.WebApi/Lacuna.WebApi.csproj" />
@@ -95,7 +98,7 @@
       <updated>1661282586294</updated>
       <workItem from="1661282592262" duration="6650000" />
       <workItem from="1661289425645" duration="3737000" />
-      <workItem from="1661365976222" duration="3234000" />
+      <workItem from="1661365976222" duration="11241000" />
     </task>
     <task id="LOCAL-00002" summary="First EF migration">
       <created>1661283447162</created>
@@ -111,7 +114,14 @@
       <option name="project" value="LOCAL" />
       <updated>1661293196053</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Create user endpoint added in API">
+      <created>1661370112618</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1661370112618</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -134,6 +144,7 @@
     <MESSAGE value="Password changes." />
     <MESSAGE value="First EF migration" />
     <MESSAGE value="Application layer added: Token, Dtos, Services." />
-    <option name="LAST_COMMIT_MESSAGE" value="Application layer added: Token, Dtos, Services." />
+    <MESSAGE value="Create user endpoint added in API" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create user endpoint added in API" />
   </component>
 </project>

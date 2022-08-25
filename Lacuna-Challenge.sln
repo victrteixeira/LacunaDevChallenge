@@ -14,7 +14,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lacuna.IoC", "Lacuna.IoC\La
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lacuna.Application", "Lacuna.Application\Lacuna.Application.csproj", "{61500FD1-27B5-485C-9121-5DA200C1CB09}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainUnitTests", "DomainUnitTests\DomainUnitTests.csproj", "{0105E7A8-8343-4CF5-ACA7-794940B7BDDB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lacuna.DomainTests", "Lacuna.DomainTests\Lacuna.DomainTests.csproj", "{0105E7A8-8343-4CF5-ACA7-794940B7BDDB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

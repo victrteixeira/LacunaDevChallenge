@@ -43,7 +43,7 @@ public class User
         return Regex.IsMatch(str, @"[a-z A-z 0-9_\-]+[@]+[a-z]+[\.][a-z]{3,4}$");
     }
 
-    public static string HashPassword(string password)
+    private static string HashPassword(string password)
     {
         var sha256 = HashAlgorithmName.SHA256;
         byte[] salt = RandomNumberGenerator.GetBytes(128 / 8);
