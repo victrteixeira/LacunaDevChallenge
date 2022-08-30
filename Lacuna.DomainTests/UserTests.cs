@@ -88,4 +88,26 @@ public class UserTests
             .Throw<DomainExceptionValidation>()
             .WithMessage("Password must has 8 chars at minimum.");
     }
+
+    [Fact]
+    public void User_GetUserEmail_ReturnEmailValueFromAnUser()
+    {
+        // Arrange
+        var user = new User("RandomUsername", "someemail@totest.com", new Internet().Password(8));
+        // Act
+        var res = user.Email;
+        // Assert
+        res.Should().BeEquivalentTo("someemail@totest.com");
+    }
+
+    [Fact]
+    public void User_GetUserUsername_ReturnUsernameValueFromAnUser()
+    {
+        // Arrange
+        var user = new User("RandomUsername", "someemail@totest.com", new Internet().Password(8));
+        // Act
+        var res = user.Username;
+        // Assert
+        res.Should().BeEquivalentTo("RandomUsername");
+    }
 }

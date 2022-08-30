@@ -8,8 +8,12 @@ public class LacunaContext : DbContext
     public LacunaContext(DbContextOptions<LacunaContext> options) : base(options)
     {
     }
+
+    public LacunaContext()
+    {
+    }
     
-    public DbSet<User> LacunaUsers { get; set; }
+    public virtual DbSet<User> LacunaUsers { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
