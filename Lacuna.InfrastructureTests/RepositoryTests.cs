@@ -41,6 +41,7 @@ public class RepositoryTests
         res.Should().NotBeNull();
         res.Should().BeOfType<User>();
         res.Should().BeEquivalentTo(Users[0]);
+        res.Should().NotBeNull();
     }
 
 
