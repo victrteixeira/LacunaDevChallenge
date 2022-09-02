@@ -1,4 +1,6 @@
+using Lacuna.Infrastructure.Context;
 using Lacuna.IoC;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +15,12 @@ builder.Services.AddApplication(builder.Configuration);
 
 var app = builder.Build();
 
+using (var serviceScope = app.Services.CreateScope())
+{
+    var db = serviceScope.ServiceProvider.GetRequiredService<LacunaContext>();
+    db.Database.Migrate();
+}
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -20,7 +28,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
