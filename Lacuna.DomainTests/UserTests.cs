@@ -1,9 +1,4 @@
-﻿using Bogus.DataSets;
-using FluentAssertions;
-using Lacuna.Domain.Users;
-using Lacuna.Domain.Validation;
-
-namespace Lacuna.DomainTests;
+﻿namespace Lacuna.DomainTests;
 
 public class UserTests
 {

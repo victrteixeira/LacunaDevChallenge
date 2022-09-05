@@ -11,7 +11,7 @@ public static class DbFixture
         var users = new Faker<User>()
             .CustomInstantiator(_ => new User
             (
-                new Randomizer().ClampString(new Name().FirstName(), 5, 31),
+                "sampleusername",
                 new Internet().Email(),
                 new Internet().Password(12)
             )).Generate(10);
@@ -24,7 +24,7 @@ public static class DbFixture
         return new Faker<User>()
             .CustomInstantiator(_ => new User
             (
-                new Randomizer().ClampString(new Name().FirstName(), 5, 31),
+                "sampleusername",
                 new Internet().Email(),
                 new Internet().Password(12)
             )).Generate();

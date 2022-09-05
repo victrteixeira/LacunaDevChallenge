@@ -12,11 +12,13 @@ public class Authentication : IAuthentication
 {
     private readonly IUserRepository _repository;
     private readonly ITokenRequest _token;
+    private readonly IPasswordValidation _pwdValidation;
 
-    public Authentication(IUserRepository repository, ITokenRequest token)
+    public Authentication(IUserRepository repository, ITokenRequest token, IPasswordValidation pwdValidation)
     {
         _repository = repository;
         _token = token;
+        _pwdValidation = pwdValidation;
     }
     
     public async Task<CreateUserResponse> Register(CreateUserDto userDto)
@@ -26,9 +28,7 @@ public class Authentication : IAuthentication
             throw new AuthenticationException("Email already registered.");
 
         User user = new(userDto.Username, userDto.Email, userDto.Password);
-        var userCreated = await _repository.CreateUserAsync(user);
-        if (userCreated == null)
-            throw new NullReferenceException("Something got wrong.");
+        await _repository.CreateUserAsync(user);
 
         return new CreateUserResponse { Code = "Success", Message = "User created successfully." };
     }
@@ -37,9 +37,9 @@ public class Authentication : IAuthentication
     {
         var user = await _repository.GetUsernameAsync(userDto.Username);
         if (user == null)
-            throw new NullReferenceException();
+            throw new NullReferenceException("User not found.");
 
-        var pwdValid = PasswordValidation.IsValid(userDto, user.HashedPassword);
+        var pwdValid = _pwdValidation.IsValid(userDto, user.HashedPassword);
         if (!pwdValid)
             throw new AuthenticationException();
 

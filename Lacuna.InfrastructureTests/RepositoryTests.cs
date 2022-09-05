@@ -1,9 +1,4 @@
-﻿using Bogus;
-using Bogus.DataSets;
-using Lacuna.Domain.Validation;
-using Microsoft.EntityFrameworkCore;
-
-namespace Lacuna.InfrastructureTests;
+﻿namespace Lacuna.InfrastructureTests;
 
 public class RepositoryTests
 {
@@ -68,11 +63,11 @@ public class RepositoryTests
     public async Task Repository_GetUsername_ShouldReturnAnEntityByUsername()
     {
         // Arrange
-        var user = new User("sampleusername", new Internet().Email(), new Internet().Password(12));
+        var user = new User("anothersampleusername", new Internet().Email(), new Internet().Password(12));
         Users.Add(user);
 
         // Act
-        var res = await _sut.GetUsernameAsync("sampleusername");
+        var res = await _sut.GetUsernameAsync("anothersampleusername");
         
         // Assert
         res.Should().Be(user);

@@ -4,9 +4,9 @@ using Lacuna.Application.Interfaces;
 
 namespace Lacuna.Application.Utils;
 
-public static class PasswordValidation
+public class PasswordValidation : IPasswordValidation
 {
-    public static bool IsValid(LoginUserDto userDto, string hashedPwd)
+    public bool IsValid(LoginUserDto userDto, string hashedPwd)
     {
         byte[] salt = new byte[16];
         byte[] hashBytes = Convert.FromBase64String(hashedPwd);

@@ -1,9 +1,12 @@
+global using Moq;
 global using Xunit;
+global using Bogus;
+global using Bogus.DataSets;
 global using FluentAssertions;
-global using Lacuna.Domain.Interfaces;
+global using MockQueryable.Moq;
 global using Lacuna.Domain.Users;
+global using Lacuna.Domain.Interfaces;
 global using Lacuna.Infrastructure.Context;
+global using Microsoft.EntityFrameworkCore;
 global using Lacuna.Infrastructure.Repository;
 global using Lacuna.InfrastructureTests.Fixtures;
-global using MockQueryable.Moq;
-global using Moq;

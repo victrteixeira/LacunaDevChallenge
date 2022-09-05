@@ -1,0 +1,13 @@
+global using Moq;
+global using Xunit;
+global using Bogus.DataSets;
+global using FluentAssertions;
+global using Lacuna.Domain.Users;
+global using Lacuna.Application.DTO;
+global using Lacuna.Application.Utils;
+global using Lacuna.Domain.Interfaces;
+global using Lacuna.Application.Services;
+global using Lacuna.Application.Responses;
+global using Lacuna.Application.Interfaces;
+global using System.Security.Authentication;
+global using Lacuna.ApplicationTests.Fixtures;
