@@ -14,5 +14,4 @@
     <ItemGroup>
       <ProjectReference Include="..\Lacuna.IoC\Lacuna.IoC.csproj" />
     </ItemGroup>
-
 </Project>

@@ -5,20 +5,16 @@ services:
     container_name: lacuna-pdb
     environment:
       MYSQL_ROOT_PASSWORD: 1
-      MYSQL_DATABASE: "lacunadb"
+      MYSQL_DATABASE: lacunadb
       MYSQL_USER: lacunauser
       MYSQL_PASSWORD: lacunauserpwd
     volumes:
-      - dbdata:/var/lib/mysql
+      - dbdata:/var/lib/mysql:rw
     restart: always
-
   app:
     depends_on:
       - db
-    image: imvictr/lacuna-depl:1.5
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: imvictr/lacuna-depl:1.4
     ports:
       - "8000:80"
 volumes:

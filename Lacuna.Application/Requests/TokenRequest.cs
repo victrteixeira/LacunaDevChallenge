@@ -45,10 +45,11 @@ public class TokenRequest : ITokenRequest
                 SigningCredentials = credentials
             };
 
-            var token = jwtTokenHandler.CreateToken(tokenDescriptor);
+            var previewToken = jwtTokenHandler.CreateToken(tokenDescriptor);
+            var token = jwtTokenHandler.WriteToken(previewToken);
             return new TokenResponse
             {
-                AccessToken = token.ToString(),
+                AccessToken = token,
                 Code = "Success"
             };
         });

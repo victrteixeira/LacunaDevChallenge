@@ -2,6 +2,7 @@
 using Lacuna.Application.DTO;
 using Lacuna.Application.Interfaces;
 using Lacuna.Application.Responses;
+using Lacuna.Application.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Lacuna.WebApi.Controllers;
@@ -35,6 +36,34 @@ public class UsersController : ControllerBase
                 Code = "Error",
                 Message = e.Message
             });
+        }
+    }
+
+    [HttpPost]
+    [Route("login")]
+    public async Task<IActionResult> LogInUser(LoginUserDto userDto)
+    {
+        try
+        {
+            if (!ModelState.IsValid)
+                return StatusCode(406, ModelState);
+
+            var token = await _auth.Login(userDto);
+            return Ok(token);
+        }
+        catch (Exception e) when (e is NullReferenceException || e is AuthenticationException)
+        {
+            if (e is NullReferenceException)
+            {
+                return StatusCode(404, new TokenResponse
+                {
+                    AccessToken = null,
+                    Code = "Error",
+                    Message = "User not found or don't exist."
+                });
+            }
+
+            return Unauthorized();
         }
     }
 }

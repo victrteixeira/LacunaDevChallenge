@@ -27,18 +27,26 @@ public class UserRepository : IUserRepository
 
     public async Task<User?> GetEmailAsync(string email)
     {
-        return await _context.LacunaUsers
+        var query = await _context.LacunaUsers
             .AsNoTracking()
             .Where(x => x.Email.ToLower().Contains(email.ToLower()))
             .FirstOrDefaultAsync();
+
+        if (query == default)
+            return null;
+        return query;
     }
 
     public async Task<User?> GetUsernameAsync(string username)
     {
-        return await _context.LacunaUsers
+       var query = await _context.LacunaUsers
             .AsNoTracking()
             .Where(x => x.Username.ToLower()
                 .Contains(username.ToLower()))
             .FirstOrDefaultAsync();
+
+       if (query == default)
+           return null;
+       return query;
     }
 }
