@@ -2,6 +2,7 @@
 using Lacuna.Application.Interfaces;
 using Lacuna.Application.Requests;
 using Lacuna.Application.Services;
+using Lacuna.Application.Utils;
 using Lacuna.Domain.Interfaces;
 using Lacuna.Infrastructure.Context;
 using Lacuna.Infrastructure.Repository;
@@ -30,6 +31,7 @@ public static class Container
     {
         services.AddScoped<IAuthentication, Authentication>();
         services.AddScoped<ITokenRequest, TokenRequest>();
+        services.AddScoped<IPasswordValidation, PasswordValidation>();
         
         services.AddAuthentication(opt =>
         {

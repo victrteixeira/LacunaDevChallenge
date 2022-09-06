@@ -1,4 +1,6 @@
-namespace Lacuna.ApplicationTests;
+using Unit.Application.Tests.Fixtures;
+
+namespace Unit.Application.Tests;
 
 public class ServicesTests
 {

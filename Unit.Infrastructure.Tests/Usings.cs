@@ -9,4 +9,4 @@ global using Lacuna.Domain.Interfaces;
 global using Lacuna.Infrastructure.Context;
 global using Microsoft.EntityFrameworkCore;
 global using Lacuna.Infrastructure.Repository;
-global using Lacuna.InfrastructureTests.Fixtures;
+global using Unit.Infrastructure.Tests.Fixtures;

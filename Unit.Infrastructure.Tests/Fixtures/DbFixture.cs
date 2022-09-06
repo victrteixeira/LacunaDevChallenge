@@ -2,7 +2,7 @@
 using Bogus.DataSets;
 using Lacuna.Domain.Users;
 
-namespace Lacuna.InfrastructureTests.Fixtures;
+namespace Unit.Infrastructure.Tests.Fixtures;
 
 public static class DbFixture
 {

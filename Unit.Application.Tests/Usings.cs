@@ -10,4 +10,4 @@ global using Lacuna.Application.Services;
 global using Lacuna.Application.Responses;
 global using Lacuna.Application.Interfaces;
 global using System.Security.Authentication;
-global using Lacuna.ApplicationTests.Fixtures;
+global using Unit.Application.Tests.Fixtures;

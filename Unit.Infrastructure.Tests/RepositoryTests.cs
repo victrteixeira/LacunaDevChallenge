@@ -1,4 +1,6 @@
-﻿namespace Lacuna.InfrastructureTests;
+﻿using Unit.Infrastructure.Tests.Fixtures;
+
+namespace Unit.Infrastructure.Tests;
 
 public class RepositoryTests
 {

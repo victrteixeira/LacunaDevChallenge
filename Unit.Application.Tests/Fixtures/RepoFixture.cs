@@ -3,7 +3,7 @@ using Bogus.DataSets;
 using Lacuna.Application.DTO;
 using Lacuna.Domain.Users;
 
-namespace Lacuna.ApplicationTests.Fixtures;
+namespace Unit.Application.Tests.Fixtures;
 
 public static class RepoFixture
 {
@@ -11,7 +11,7 @@ public static class RepoFixture
     {
         var userDto = new CreateUserDto();
         userDto.Email = new Internet().Email();
-        userDto.Username = "sampleusername";
+        userDto.Username = new Randomizer().Replace(new Randomizer().ClampString(new Name().FirstName(), 7, 31));
         userDto.Password = new Internet().Password(12);
         userDto.ConfirmPassword = userDto.Password;
 
@@ -25,7 +25,7 @@ public static class RepoFixture
         {
             var userDto = new CreateUserDto();
             userDto.Email = new Internet().Email();
-            userDto.Username = "sampleusername";
+            userDto.Username = new Randomizer().Replace(new Randomizer().ClampString(new Name().FirstName(), 7, 31));
             userDto.Password = new Internet().Password(12);
             userDto.ConfirmPassword = userDto.Password;
             
@@ -40,7 +40,7 @@ public static class RepoFixture
         var users = new Faker<User>()
             .CustomInstantiator(_ => new User
             (
-                "sampleusername",
+                new Randomizer().Replace(new Randomizer().ClampString(new Name().FirstName(), 7, 31)),
                 new Internet().Email(),
                 new Internet().Password(12)
             )).Generate();
@@ -53,7 +53,7 @@ public static class RepoFixture
         var users = new Faker<User>()
             .CustomInstantiator(_ => new User
             (
-                "sampleusername",
+                new Randomizer().Replace(new Randomizer().ClampString(new Name().FirstName(), 7, 31)),
                 new Internet().Email(),
                 new Internet().Password(12)
             )).Generate(10);
@@ -64,7 +64,7 @@ public static class RepoFixture
     public static LoginUserDto ValidLoginDto()
     {
         LoginUserDto loginDto = new();
-        loginDto.Username = "sampleusername";
+        loginDto.Username = new Randomizer().Replace(new Randomizer().ClampString(new Name().FirstName(), 7, 31));
         loginDto.Password = new Internet().Password();
 
         return loginDto;
@@ -76,7 +76,7 @@ public static class RepoFixture
         for (int i = 0; i < 10; i++)
         {
             LoginUserDto loginDto = new();
-            loginDto.Username = "sampleusername";
+            loginDto.Username = new Randomizer().Replace(new Randomizer().ClampString(new Name().FirstName(), 7, 31));
             loginDto.Password = new Internet().Password();
             
             list.Add(loginDto);

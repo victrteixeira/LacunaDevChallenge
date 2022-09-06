@@ -1,4 +1,4 @@
-﻿namespace Lacuna.ApplicationTests;
+﻿namespace Unit.Application.Tests;
 
 public class PasswordValidationTests
 {

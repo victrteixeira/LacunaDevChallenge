@@ -1,4 +1,4 @@
-﻿namespace Lacuna.DomainTests;
+﻿namespace Unit.Domain.Tests;
 
 public class UserTests
 {

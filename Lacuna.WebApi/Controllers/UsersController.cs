@@ -19,7 +19,7 @@ public class UsersController : ControllerBase
 
     [HttpPost]
     [Route("create")]
-    public async Task<IActionResult> CreateUser(CreateUserDto userDto)
+    public async Task<IActionResult> CreateUser([FromBody] CreateUserDto userDto)
     {
         try
         {
@@ -41,7 +41,7 @@ public class UsersController : ControllerBase
 
     [HttpPost]
     [Route("login")]
-    public async Task<IActionResult> LogInUser(LoginUserDto userDto)
+    public async Task<IActionResult> LogInUser([FromBody] LoginUserDto userDto)
     {
         try
         {
