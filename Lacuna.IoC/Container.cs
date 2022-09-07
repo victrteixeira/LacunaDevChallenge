@@ -6,6 +6,7 @@ using Lacuna.Application.Utils;
 using Lacuna.Domain.Interfaces;
 using Lacuna.Infrastructure.Context;
 using Lacuna.Infrastructure.Repository;
+using Lacuna.Infrastructure.SeedDatabase;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -18,11 +19,8 @@ public static class Container
 {
     public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
-        var connectionString = configuration.GetConnectionString("DefaultConnection");
-        services.AddDbContext<LacunaContext>(opt => 
-            opt.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
-
         services.AddScoped<IUserRepository, UserRepository>();
+        services.AddScoped<ISeedUserInitial, SeedUserInitial>();
         
         return services;
     }

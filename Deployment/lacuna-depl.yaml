@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lacuna-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lacunaservice
+  template:
+    metadata:
+      labels:
+        app: lacunaservice
+    spec:
+      containers:
+        - name: lacunaservice
+          image: imvictr/lacuna-depl:1.1
+          ports:
+            - containerPort: 7070
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: lacuna-clusterip-srv
+spec:
+  type: ClusterIP
+  selector:
+    app: lacunaservice
+  ports:
+  - name: lacunaservice
+    protocol: TCP
+    port: 8080
+    targetPort: 7070
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: lacuna-npsrv
+spec:
+  type: NodePort
+  selector:
+    app: lacunaservice
+  ports:
+    - name: lacunaservice
+      protocol: TCP
+      port: 8080
+      targetPort: 7070
