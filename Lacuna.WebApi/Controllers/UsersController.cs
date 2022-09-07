@@ -29,8 +29,17 @@ public class UsersController : ControllerBase
             var user = await _auth.Register(userDto);
             return Ok(user);
         }
-        catch (Exception e)
+        catch (Exception e) when (e is AuthenticationException)
         {
+            if (e is AuthenticationException)
+            {
+                return StatusCode(409, new CreateUserResponse
+                {
+                    Code = "Error",
+                    Message = e.Message
+                });
+            }
+            
             return StatusCode(500, new CreateUserResponse
             {
                 Code = "Error",

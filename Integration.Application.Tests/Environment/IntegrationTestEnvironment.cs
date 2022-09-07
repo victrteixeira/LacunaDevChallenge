@@ -49,7 +49,6 @@ public class IntegrationTestEnvironment
                     
                 });
             });
-
         var client = application.CreateClient();
 
         return client;
